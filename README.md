@@ -73,3 +73,17 @@ records: [
 - As I come across concepts I am unsure of I will research and ask for help. 
 - I will ensure that I test and plan for different browsers.
 - I will make sure my technology is updated and test after each update. 
+
+## Project Schedule
+
+|  Day | Deliverable | Status
+|---|---| ---|
+|Sep 4| Prompt / Wireframes / Timeframes | Complete
+|Sep 5| Project Approval / Core Application Structure | Incomplete
+|Sep 6| Get Data / Routes & Links | Incomplete
+|Sep 7| Styling | Incomplete
+|Sep 8| Create Form | Incomplete
+|Sep 9| MVP | Incomplete
+|Sep 9| Deployment | Incomplete
+|Sep 10| Post-MVP | Incomplete
+|Sep 11| Presentations | Incomplete
