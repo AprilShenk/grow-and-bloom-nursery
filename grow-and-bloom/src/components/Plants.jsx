@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const StyledDiv = styled.div`
@@ -40,15 +41,25 @@ const StyledDiv = styled.div`
   }
 `;
 
-const Plants = ({plantData}) => {
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: brown;
+`;
+
+const Plants = ({ plantData }) => {
+  
+  const plant = plantData.map((plant) => (
+    <StyledLink to={`/plant/${plant.id}`} key={plant.id}>
+    <div key={plant.id}>
+      <img src={plant.fields.image} alt={plant.fields.image}/>
+      <h3>{plant.fields.name}</h3>
+      </div>
+    </StyledLink>
+  ))
+
   return (
     <StyledDiv>
-      {plantData && plantData.map((plant) => (
-        <div key={plant.id}>
-          <img src={plant.fields.image} alt={plant.fields.image}/>
-          <h3>{plant.fields.name}</h3>
-        </div>
-      ))}
+      {plant}
     </StyledDiv>
   );
 };
