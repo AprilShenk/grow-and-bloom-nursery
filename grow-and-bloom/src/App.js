@@ -8,6 +8,7 @@ import NavBar from "./components/NavBar";
 import ShowPage from "./components/ShowPage";
 import DisplayBanner from "./components/DisplayBanner";
 import Request from "./components/Requests";
+import About from './components/About';
 
 function App() {
   const [plantData, setPlantData] = useState([]);
@@ -39,6 +40,9 @@ function App() {
         </Route>
         <Route path="/plant/:id">
           <ShowPage plantData={plantData} />
+        </Route>
+        <Route path="/about">
+          <About />
         </Route>
       </Switch>
     </div>

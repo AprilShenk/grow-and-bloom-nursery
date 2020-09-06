@@ -37,9 +37,9 @@ const InfoContainer = styled.section`
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    max-width: 600px;
+    max-width: 800px;
     img {
-      width: 65%;
+      width: 45%;
     }
   } 
   `;
@@ -81,8 +81,10 @@ export default function ShowPage({plantData}) {
       <InfoDiv>
         <h1>{plant.fields.name}</h1>
         <h6>({plant.fields.scientificName})</h6>
+        <h4>${plant.fields.price}</h4>
         <h4>Description</h4>
         <p>{plant.fields.description}</p>
+        <p>Safe for Pets: {plant.fields.petSafe}</p>
         <a href={plant.fields.link} target="_blank" rel="noopener noreferrer">
           <ReadMore>Read More</ReadMore>
         </a>
