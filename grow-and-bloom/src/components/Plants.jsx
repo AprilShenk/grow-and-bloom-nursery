@@ -17,6 +17,9 @@ const StyledDiv = styled.div`
     height: 150px;
     object-fit: contain;
   }
+  div:hover {
+    filter: brightness(75%);
+  }
   .plant-info {
     display: none;
   }
@@ -31,7 +34,7 @@ const StyledDiv = styled.div`
   @media only screen and (min-width: 1025px) {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    
+
     div > img {
       width: 200px;
       height: 200px;

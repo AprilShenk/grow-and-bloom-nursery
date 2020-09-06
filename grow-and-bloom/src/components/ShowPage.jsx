@@ -3,16 +3,24 @@ import styled from "styled-components";
 import { useParams } from "react-router-dom";
 
 const ReadMore = styled.button`
-@media only screen and (min-width: 750px) {
-
-}
-@media only screen and (min-width: 1025px) {}
-    background-color: #504d4d;
+  background-color: #633D2E;
     color: white;
     font-weight: bold;
     padding: 8px;
     border-radius: 10px;
     width: 120px;
+    align-self: center;
+    border: none;
+  }
+  :hover {
+    background-color: #F7AF63;
+  }
+  @media only screen and (min-width: 750px) {
+
+  }
+  @media only screen and (min-width: 1025px) {
+
+  }
   `;
 
 const InfoContainer = styled.section`
@@ -22,8 +30,11 @@ const InfoContainer = styled.section`
   justify-content: center;
   align-items: center;
   max-width: 80vw;
+  background: #BFD8AD;
+  border-radius: 30px;
   img {
     width: 70%;
+    margin: 30px;
   }
 
   @media only screen and (min-width: 750px) {
@@ -41,39 +52,37 @@ const InfoContainer = styled.section`
     img {
       width: 45%;
     }
-  } 
-  `;
+  }
+`;
 
 const InfoDiv = styled.div`
-* {
-  margin: 10 auto;
-}
-h1 {
-  margin: 10px auto 1px;
-}
-h6 {
-  margin: 0;
-}
+  * {
+    margin: 10 auto;
+  }
+  h1 {
+    margin: 10px auto 1px;
+  }
+  h6 {
+    margin: 0;
+  }
 
-@media only screen and (min-width: 750px) {
-
-}
-@media only screen and (min-width: 1025px) {
+  @media only screen and (min-width: 750px) {
+  }
+  @media only screen and (min-width: 1025px) {
     margin: 40px;
     * {
       margin: 10px;
     }
   }
-  `;
+`;
 
-
-export default function ShowPage({plantData}) {
+export default function ShowPage({ plantData }) {
   const params = useParams();
 
   const plant = plantData.find((plant) => params.id === plant.id);
 
   if (!plant) {
-    return <h2>Loading...</h2>
+    return <h2>Loading...</h2>;
   }
   return (
     <InfoContainer>

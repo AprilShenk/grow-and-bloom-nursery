@@ -14,19 +14,30 @@ const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   max-width: 400px;
-  justify-content: center;
   input {
     padding: 10px;
     margin: 10px 0;
   }
   button {
-    background-color: #504d4d;
+    background-color: #633D2E;
     color: white;
     font-weight: bold;
     padding: 8px;
     border-radius: 10px;
     width: 120px;
+    align-self: center;
   }
+  button:hover {
+    background-color: #F7AF63;
+  }
+`;
+
+const StyledDiv = styled.div`
+  background: #DDD9AB;
+  padding: 30px;
+  max-width: 500px;
+  margin: 30px auto;
+  border-radius: 30px;
 `;
 
 const Request = ({fetchPlants, setFetchPlants}) => {
@@ -60,7 +71,7 @@ const Request = ({fetchPlants, setFetchPlants}) => {
   };
 
   return (
-    <div>
+    <StyledDiv>
       <Title>Request a Plant</Title>
       <StyledForm onSubmit={handleSubmit}>
         <label htmlFor="name">Name</label>
@@ -100,7 +111,7 @@ const Request = ({fetchPlants, setFetchPlants}) => {
         />
         <button>Submit</button>
       </StyledForm>
-    </div>
+    </StyledDiv>
   );
 };
 

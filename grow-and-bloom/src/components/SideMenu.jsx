@@ -14,22 +14,29 @@ const ToggleMenu = styled.aside`
     list-style: none;
   }
 `;
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: #633d2e;
+  font-weight: bold;
+  :hover {
+    color: #F7AF63;
+  }
+`;
 
 const SideMenu = () => {
   return (
     <ToggleMenu>
       <nav>
         <ul>
-          <Link to="/">
+          <StyledLink to="/">
             <li>Home</li>
-          </Link>
-          <Link to="/plant/new">
+          </StyledLink>
+          <StyledLink to="/plant/new">
             <li>Request</li>
-          </Link>
-          <Link to="/about">
+          </StyledLink>
+          <StyledLink to="/about">
             <li>About Us</li>
-          </Link>
-          
+          </StyledLink>
         </ul>
       </nav>
     </ToggleMenu>

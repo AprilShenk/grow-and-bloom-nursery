@@ -1,8 +1,17 @@
 import React from "react";
+import styled from 'styled-components';
+
+const StyledDiv = styled.div`
+  max-width: 500px;
+  margin: 30px auto;
+  background: #DDD9AB;
+  padding: 20px;
+  border-radius: 30px;
+`;
 
 const About = () => {
   return (
-    <div>
+    <StyledDiv>
       <h3>Contact</h3>
       <div>
         Email: <a href="mailto:webmaster@example.com">Jane Doe</a><br />
@@ -37,7 +46,7 @@ const About = () => {
         different. Trees are different. Let them all be individuals. Put your
         feelings into it, your heart, it's your world.
       </p>
-    </div>
+    </StyledDiv>
   );
 };
 

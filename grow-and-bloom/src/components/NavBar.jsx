@@ -31,6 +31,11 @@ const MenuIcon = styled.button`
   background: transparent;
   border: none;
   cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  :hover {
+    background: #F7AF63;
+  }
 `;
 
 
