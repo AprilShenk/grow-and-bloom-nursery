@@ -9,6 +9,7 @@ import ShowPage from "./components/ShowPage";
 import DisplayBanner from "./components/DisplayBanner";
 import Request from "./components/Requests";
 import About from './components/About';
+import Footer from './components/Footer'
 
 function App() {
   const [plantData, setPlantData] = useState([]);
@@ -45,6 +46,7 @@ function App() {
           <About />
         </Route>
       </Switch>
+      <Footer />
     </div>
   );
 }

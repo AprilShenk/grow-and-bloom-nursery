@@ -30,6 +30,9 @@ const StyledForm = styled.form`
   button:hover {
     background-color: #F7AF63;
   }
+  button:focus {
+    outline: none;
+  }
 `;
 
 const StyledDiv = styled.div`

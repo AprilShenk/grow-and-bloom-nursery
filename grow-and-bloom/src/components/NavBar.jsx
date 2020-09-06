@@ -36,6 +36,9 @@ const MenuIcon = styled.button`
   :hover {
     background: #F7AF63;
   }
+  :focus {
+    outline: none;
+  }
 `;
 
 

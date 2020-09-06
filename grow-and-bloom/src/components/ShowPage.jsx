@@ -15,6 +15,9 @@ const ReadMore = styled.button`
   :hover {
     background-color: #F7AF63;
   }
+  :focus {
+    outline: none;
+  }
   @media only screen and (min-width: 750px) {
 
   }
