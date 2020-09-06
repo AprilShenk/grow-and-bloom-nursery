@@ -79,11 +79,11 @@ records: [
 |  Day | Deliverable | Status
 |---|---| ---|
 |Sep 4| Prompt / Wireframes / Timeframes | Complete
-|Sep 5| Project Approval / Core Application Structure | Incomplete
-|Sep 6| Get Data / Routes & Links | Incomplete
-|Sep 7| Styling | Incomplete
-|Sep 8| Create Form | Incomplete
-|Sep 9| MVP | Incomplete
+|Sep 5| Project Approval / Core Application Structure | Complete
+|Sep 6| Get Data / Routes & Links | Complete
+|Sep 7| Styling | Complete
+|Sep 8| Create Form | Complete
+|Sep 9| MVP | Complete
 |Sep 9| Deployment | Incomplete
 |Sep 10| Post-MVP | Incomplete
 |Sep 11| Presentations | Incomplete
