@@ -7,9 +7,11 @@ import "./App.css";
 import NavBar from "./components/NavBar";
 import ShowPage from "./components/ShowPage";
 import DisplayBanner from "./components/DisplayBanner";
+import Request from "./components/Requests";
 
 function App() {
   const [plantData, setPlantData] = useState([]);
+  const [fetchPlants, setFetchPlants] = useState(false);
 
   useEffect(() => {
     const getPlants = async () => {
@@ -22,7 +24,7 @@ function App() {
       setPlantData(response.data.records);
     };
     getPlants();
-  }, []);
+  }, [fetchPlants]);
 
   return (
     <div className="App">
@@ -31,6 +33,9 @@ function App() {
       <Switch>
         <Route exact path="/">
           <Plants plantData={plantData} />
+        </Route>
+        <Route path="/plant/new">
+          <Request fetchPlants={fetchPlants} setFetchPlants={setFetchPlants} />
         </Route>
         <Route path="/plant/:id">
           <ShowPage plantData={plantData} />

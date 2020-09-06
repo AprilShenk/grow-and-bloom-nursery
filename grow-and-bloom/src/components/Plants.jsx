@@ -1,12 +1,12 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import React from "react";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
 
 const StyledDiv = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   div {
-    padding: 10px
+    padding: 10px;
   }
   div > img {
     width: 150px;
@@ -18,7 +18,7 @@ const StyledDiv = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     div {
-      padding: 30px
+      padding: 30px;
     }
     div > img {
       width: 200px;
@@ -31,7 +31,7 @@ const StyledDiv = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     div {
-      padding: 30px
+      padding: 30px;
     }
     div > img {
       width: 200px;
@@ -47,20 +47,23 @@ const StyledLink = styled(Link)`
 `;
 
 const Plants = ({ plantData }) => {
-  
   const plant = plantData.map((plant) => (
     <StyledLink to={`/plant/${plant.id}`} key={plant.id}>
-    <div key={plant.id}>
-      <img src={plant.fields.image} alt={plant.fields.image}/>
-      <h3>{plant.fields.name}</h3>
+      <div key={plant.id}>
+        <img src={plant.fields.image} alt={plant.fields.image} />
+        <h3>{plant.fields.name}</h3>
       </div>
     </StyledLink>
-  ))
+  ));
 
   return (
-    <StyledDiv>
-      {plant}
-    </StyledDiv>
+    <>
+      <StyledDiv>{plant}</StyledDiv>
+      <Link to="/plant/new">
+        <h3>Do we not have want you want? Add a request</h3>
+      </Link>
+      
+    </>
   );
 };
 
