@@ -23,9 +23,9 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const SideMenu = () => {
+const SideMenu = ({toggleMenu, setToggleMenu}) => {
   return (
-    <ToggleMenu>
+    <ToggleMenu onMouseLeave={()=> setToggleMenu(!toggleMenu)}>
       <nav>
         <ul>
           <StyledLink to="/">

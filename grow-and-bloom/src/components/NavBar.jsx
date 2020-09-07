@@ -58,7 +58,7 @@ const NavBar = (props) => {
           <FontAwesomeIcon icon={faBars} size="2x" />
         </MenuIcon>
       </StyledDiv>
-      { toggleMenu && <SideMenu />}
+      {toggleMenu && <SideMenu toggleMenu={toggleMenu} setToggleMenu={setToggleMenu} />}
     </>
   );
 };
