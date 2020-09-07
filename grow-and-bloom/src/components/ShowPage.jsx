@@ -93,10 +93,15 @@ export default function ShowPage({ plantData }) {
       <InfoDiv>
         <h1>{plant.fields.name}</h1>
         <h6>({plant.fields.scientificName})</h6>
-        <h4>${plant.fields.price}</h4>
+        {plant.fields.price ? 
+        <h4>${plant.fields.price}</h4> 
+        : <h4>Out of Stock</h4>}
         <h4>Description</h4>
         <p>{plant.fields.description}</p>
-        <p>Safe for Pets: {plant.fields.petSafe}</p>
+        {plant.fields.petSafe ? 
+        <p>Safe for Pets: {plant.fields.petSafe}</p> 
+        : null}
+        
         <a href={plant.fields.link} target="_blank" rel="noopener noreferrer">
           <ReadMore>Read More</ReadMore>
         </a>
