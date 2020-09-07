@@ -26,12 +26,13 @@ const StyledForm = styled.form`
     border-radius: 10px;
     width: 120px;
     align-self: center;
+    border: none;
   }
   button:hover {
     background-color: #F7AF63;
   }
   button:focus {
-    outline: none;
+    outline-color: #9CDDC8;
   }
 `;
 

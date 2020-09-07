@@ -7,7 +7,6 @@ const ToggleMenu = styled.aside`
   height: 200px;
   float: right;
   background: #bfd8ad;
-  color: #633d2e;
   line-height: 50px;
   font-size: 20px;
   ul {

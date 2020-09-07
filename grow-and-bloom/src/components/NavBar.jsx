@@ -37,7 +37,7 @@ const MenuIcon = styled.button`
     background: #F7AF63;
   }
   :focus {
-    outline: none;
+    outline-color: #9CDDC8;
   }
 `;
 
