@@ -77,7 +77,7 @@ const NavBar = (props) => {
             <FontAwesomeIcon icon={faShoppingCart} size="2x" />
           </CartIcon>
         </Link>
-        <Link>
+        <Link to="#">
           <MenuIcon onClick={handleClick}>
             <FontAwesomeIcon icon={faBars} size="2x" />
           </MenuIcon>
