@@ -86,26 +86,42 @@ export default function ShowPage({ plantData, cart, setCart }) {
 
   const plant = plantData.find((plant) => params.id === plant.id);
 
-  const handleAddToCart = () => {
-    // plant.fields.price > 0
-    //   ? setCart([...cart, plant])
-    //   : null
-    setCart((prevCart) => {
-      console.log(prevCart);
-      if (prevCart.length) {
-        const newCart = prevCart.map((item) => {
-          console.log(item.fields)
-        return {
-          ...item.fields, 
-          count: item.fields.count + 1
-        }
-      })
-      return newCart
-      }
-      
-      return [...prevCart, plant]
-    });
-  };
+  // const handleAddToCart = () => {
+  //   // plant.fields.price > 0
+  //   //   ? setCart([...cart, plant])
+  //   //   : null
+  //   // setCart((prevCart) => {
+  //   //   console.log(prevCart);
+  //   //   const newCart = prevCart.map((item) => {
+  //   //     console.log(item);
+  //   //     if (!item.count) {
+  //   //       return {
+  //   //       ...item,
+  //   //       count: 1,
+  //   //     };
+  //   //     } else {
+  //   //       return {
+  //   //         ...item, 
+  //   //         count: item.count + 1
+  //   //       }
+  //   //     }
+        
+  //   //   });
+  //   //   return [...cart, plant];
+
+  //   //   // return [...prevCart, plant];
+  //   // });
+
+  //   console.log(plant);
+  //   setCart(prevCart => {
+  //     console.log(prevCart);
+  //     const newCart = prevCart.map(item => {
+
+  //     })
+  //     // return [...prevCart, plant]
+  //   })
+
+  // };
 
   if (!plant) {
     return <h2>Loading...</h2>;
@@ -129,7 +145,7 @@ export default function ShowPage({ plantData, cart, setCart }) {
         <a href={plant.fields.link} target="_blank" rel="noopener noreferrer">
           <StyledButton>Read More</StyledButton>
         </a>
-        <StyledButton onClick={handleAddToCart}>Add to Cart</StyledButton>
+        {/* <StyledButton onClick={handleAddToCart}>Add to Cart</StyledButton> */}
       </InfoDiv>
     </InfoContainer>
   );
