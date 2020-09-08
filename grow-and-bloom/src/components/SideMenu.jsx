@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const ToggleMenu = styled.aside`
-  width: 300px;
+  width: 200px;
   height: 200px;
   float: right;
   background: #bfd8ad;
@@ -11,6 +11,9 @@ const ToggleMenu = styled.aside`
   font-size: 20px;
   ul {
     list-style: none;
+  }
+  @media only screen and (min-width: 1025px) {
+    width: 300px;
   }
 `;
 const StyledLink = styled(Link)`

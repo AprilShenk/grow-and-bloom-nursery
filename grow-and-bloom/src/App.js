@@ -10,6 +10,7 @@ import DisplayBanner from "./components/DisplayBanner";
 import Request from "./components/Requests";
 import About from "./components/About";
 import Footer from "./components/Footer";
+import Cart from "./components/Cart"
 
 function App() {
   const [plantData, setPlantData] = useState([]);
@@ -47,6 +48,9 @@ function App() {
         </Route>
         <Route path="/about">
           <About />
+        </Route>
+        <Route path="/cart">
+          <Cart />
         </Route>
       </Switch>
       <Footer />
