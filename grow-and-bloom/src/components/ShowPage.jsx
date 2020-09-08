@@ -35,6 +35,7 @@ const InfoContainer = styled.section`
   max-width: 80vw;
   background: #BFD8AD;
   border-radius: 30px;
+  padding: 20px;
   img {
     width: 70%;
     margin: 30px;

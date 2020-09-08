@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import styled from "styled-components";
-import { baseURL } from '../constants.js';
+import { baseURL } from "../constants.js";
 import axios from "axios";
 
 const Title = styled.h2`
@@ -19,7 +19,7 @@ const StyledForm = styled.form`
     margin: 10px 0;
   }
   button {
-    background-color: #633D2E;
+    background-color: #633d2e;
     color: white;
     font-weight: bold;
     padding: 8px;
@@ -29,22 +29,22 @@ const StyledForm = styled.form`
     border: none;
   }
   button:hover {
-    background-color: #F7AF63;
+    background-color: #f7af63;
   }
   button:focus {
-    outline-color: #9CDDC8;
+    outline-color: #9cddc8;
   }
 `;
 
 const StyledDiv = styled.div`
-  background: #DDD9AB;
+  background: #ddd9ab;
   padding: 30px;
   max-width: 500px;
   margin: 30px auto;
   border-radius: 30px;
 `;
 
-const Request = ({fetchPlants, setFetchPlants}) => {
+const Request = ({ fetchPlants, setFetchPlants }) => {
   const [name, setName] = useState("");
   const [scientificName, setScientificName] = useState("");
   const [image, setImage] = useState("");
@@ -60,13 +60,21 @@ const Request = ({fetchPlants, setFetchPlants}) => {
       image,
       link,
     };
-    await axios.post(`${baseURL}/plants`, { fields }, {
-      headers: {
-        'Authorization': `Bearer ${process.env.REACT_APP_AIRTABLE_KEY}`
-      }
-    })
+    try {
+      await axios.post(
+        `${baseURL}/plants`,
+        { fields },
+        {
+          headers: {
+            Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_KEY}`,
+          },
+        }
+      );
+    } catch (error) {
+      console.log(error);
+    }
 
-    setFetchPlants(!fetchPlants)
+    setFetchPlants(!fetchPlants);
     setName("");
     setScientificName("");
     setDescription("");

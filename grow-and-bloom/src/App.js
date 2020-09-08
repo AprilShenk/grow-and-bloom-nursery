@@ -8,24 +8,27 @@ import NavBar from "./components/NavBar";
 import ShowPage from "./components/ShowPage";
 import DisplayBanner from "./components/DisplayBanner";
 import Request from "./components/Requests";
-import About from './components/About';
-import Footer from './components/Footer'
+import About from "./components/About";
+import Footer from "./components/Footer";
 
 function App() {
   const [plantData, setPlantData] = useState([]);
   const [fetchPlants, setFetchPlants] = useState(false);
 
   useEffect(() => {
-    const getPlants = async () => {
-      const response = await axios.get(`${baseURL}/plants`, {
-        headers: {
-          Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_KEY}`,
-        },
-      });
-      // console.log("plants", response.data.records);
-      setPlantData(response.data.records);
-    };
-    getPlants();
+    try {
+      const getPlants = async () => {
+        const response = await axios.get(`${baseURL}/plants`, {
+          headers: {
+            Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_KEY}`,
+          },
+        });
+        setPlantData(response.data.records);
+      };
+      getPlants();
+    } catch (error) {
+      console.log(error);
+    }
   }, [fetchPlants]);
 
   return (
