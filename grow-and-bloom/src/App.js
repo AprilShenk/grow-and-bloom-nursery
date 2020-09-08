@@ -14,6 +14,7 @@ import Cart from "./components/Cart"
 
 function App() {
   const [plantData, setPlantData] = useState([]);
+  const [cart, setCart] = useState([]);
   const [fetchPlants, setFetchPlants] = useState(false);
 
   useEffect(() => {
@@ -44,13 +45,13 @@ function App() {
           <Request fetchPlants={fetchPlants} setFetchPlants={setFetchPlants} />
         </Route>
         <Route path="/plant/:id">
-          <ShowPage plantData={plantData} />
+          <ShowPage plantData={plantData} cart={cart} setCart={setCart}/>
         </Route>
         <Route path="/about">
           <About />
         </Route>
         <Route path="/cart">
-          <Cart />
+          <Cart cart={cart} setCart={setCart} />
         </Route>
       </Switch>
       <Footer />

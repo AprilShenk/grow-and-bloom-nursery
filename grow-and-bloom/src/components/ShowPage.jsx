@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { useParams } from "react-router-dom";
 
-const ReadMore = styled.button`
+const StyledButton = styled.button`
   background-color: #633D2E;
     color: white;
     font-weight: bold;
@@ -11,6 +11,7 @@ const ReadMore = styled.button`
     width: 120px;
     align-self: center;
     border: none;
+    margin: 3px;
   }
   :hover {
     background-color: #F7AF63;
@@ -80,7 +81,8 @@ const InfoDiv = styled.div`
   }
 `;
 
-export default function ShowPage({ plantData }) {
+export default function ShowPage({ plantData, cart, setCart }) {
+
   const params = useParams();
 
   const plant = plantData.find((plant) => params.id === plant.id);
@@ -102,10 +104,11 @@ export default function ShowPage({ plantData }) {
         {plant.fields.petSafe ? 
         <p>Safe for Pets: {plant.fields.petSafe}</p> 
         : null}
-        
         <a href={plant.fields.link} target="_blank" rel="noopener noreferrer">
-          <ReadMore>Read More</ReadMore>
+          <StyledButton>Read More</StyledButton>
         </a>
+        <StyledButton onClick={() => setCart([...cart, plant]) }>Add to Cart
+        </StyledButton>
       </InfoDiv>
     </InfoContainer>
   );
