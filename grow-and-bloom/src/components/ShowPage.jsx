@@ -1,31 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useParams } from "react-router-dom";
-
-const StyledButton = styled.button`
-  background-color: #633D2E;
-    color: white;
-    font-weight: bold;
-    padding: 8px;
-    border-radius: 10px;
-    width: 120px;
-    align-self: center;
-    border: none;
-    margin: 3px;
-  }
-  :hover {
-    background-color: #F7AF63;
-  }
-  :focus {
-    outline: none;
-  }
-  @media only screen and (min-width: 750px) {
-
-  }
-  @media only screen and (min-width: 1025px) {
-
-  }
-  `;
+import Button from './Button';
 
 const InfoContainer = styled.section`
   margin: 50px auto;
@@ -132,10 +108,10 @@ export default function ShowPage({ plantData, cart, setCart }) {
           <p>Safe for Pets: {plant.fields.petSafe}</p>
         ) : null}
         <a href={plant.fields.link} target="_blank" rel="noopener noreferrer">
-          <StyledButton>Read More</StyledButton>
+          <Button text="Read More" />
         </a>
         {plant.fields.price ? (
-          <StyledButton onClick={handleAddToCart}>Add to Cart</StyledButton>
+          <Button text="Add to Cart" onClick={handleAddToCart}/>
         ) : (
           null
         )}
