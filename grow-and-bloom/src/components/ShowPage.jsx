@@ -86,42 +86,43 @@ export default function ShowPage({ plantData, cart, setCart }) {
 
   const plant = plantData.find((plant) => params.id === plant.id);
 
-  // const handleAddToCart = () => {
-  //   // plant.fields.price > 0
-  //   //   ? setCart([...cart, plant])
-  //   //   : null
-  //   // setCart((prevCart) => {
-  //   //   console.log(prevCart);
-  //   //   const newCart = prevCart.map((item) => {
-  //   //     console.log(item);
-  //   //     if (!item.count) {
-  //   //       return {
-  //   //       ...item,
-  //   //       count: 1,
-  //   //     };
-  //   //     } else {
-  //   //       return {
-  //   //         ...item, 
-  //   //         count: item.count + 1
-  //   //       }
-  //   //     }
-        
-  //   //   });
-  //   //   return [...cart, plant];
+  const handleAddToCart = () => {
+    //   // plant.fields.price > 0
+    //   //   ? setCart([...cart, plant])
+    //   //   : null
 
-  //   //   // return [...prevCart, plant];
-  //   // });
-
-  //   console.log(plant);
-  //   setCart(prevCart => {
-  //     console.log(prevCart);
-  //     const newCart = prevCart.map(item => {
-
-  //     })
-  //     // return [...prevCart, plant]
-  //   })
-
-  // };
+    setCart((prevCart) => {
+      // console.log("before map", prevCart);
+      const newCart = prevCart.map((item) => {
+        console.log("in map", prevCart);
+        console.log("in map", item);
+        // console.log(plant.id);
+        // console.log(item.id);
+        return {
+          ...item,
+          fields: {
+            category: item.fields.category,
+            count: item.fields.count + 1,
+            description: item.fields.description,
+            image: item.fields.image,
+            link: item.fields.link,
+            name: item.fields.name,
+            petSafe: item.fields.petSafe,
+            price: item.fields.price,
+            scientificName: item.fields.scientificName,
+          },
+        };
+      });
+      // console.log(prevCart)
+      if (!prevCart.length) {
+        plant.fields.count = 1
+        return [...prevCart, plant];
+      } else {
+        console.log("new");
+        return newCart;
+      }
+    });
+  };
 
   if (!plant) {
     return <h2>Loading...</h2>;
@@ -145,7 +146,7 @@ export default function ShowPage({ plantData, cart, setCart }) {
         <a href={plant.fields.link} target="_blank" rel="noopener noreferrer">
           <StyledButton>Read More</StyledButton>
         </a>
-        {/* <StyledButton onClick={handleAddToCart}>Add to Cart</StyledButton> */}
+        <StyledButton onClick={handleAddToCart}>Add to Cart</StyledButton>
       </InfoDiv>
     </InfoContainer>
   );
