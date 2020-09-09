@@ -27,10 +27,19 @@ const Cart = ({ cart, setCart }) => {
     </StyledDiv>
   ));
 
+  const getTotal = () => {
+    let total = 0;
+    cart.forEach(item => {
+      total += (item.fields.price * item.fields.count)
+    });
+    return total
+  }
+
   return (
     <div>
       <h1>Cart</h1>
       {item}
+      <h3>Total: ${getTotal()}</h3>
     </div>
   );
 };
