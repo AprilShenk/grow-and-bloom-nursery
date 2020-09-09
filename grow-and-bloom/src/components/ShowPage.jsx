@@ -57,7 +57,7 @@ const InfoDiv = styled.div`
   }
 `;
 
-export default function ShowPage({ plantData, cart, setCart }) {
+export default function ShowPage({ plantData, setCart }) {
   const params = useParams();
 
   const plant = plantData.find((plant) => params.id === plant.id);

@@ -14,7 +14,7 @@ import Cart from "./components/Cart"
 
 function App() {
   const [plantData, setPlantData] = useState([]);
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart")) || []);
   const [fetchPlants, setFetchPlants] = useState(false);
 
   useEffect(() => {

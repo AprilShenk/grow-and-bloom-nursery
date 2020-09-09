@@ -9,27 +9,28 @@ const StyledDiv = styled.div`
   margin: 0 auto;
 `;
 
-const Cart = () => {
-  const localCart = JSON.parse(localStorage.getItem("cart"));
-  console.log(localCart);
+const Cart = ({cart, setCart}) => {
+  console.log(cart);
 
-  const handleDelete = () => {
+  const handleDelete = (item) => {
     console.log("clicked");
+    console.log(item);
+    setCart(cart.filter(removeItem => removeItem !== item))
   };
 
-  const item = localCart.map((item) => (
+  const item = cart.map((item) => (
     <StyledDiv key={item.id}>
       <h1>{item.fields.name}</h1>
       <h3>${item.fields.price}</h3>
       <h5>Qty: {item.fields.count}</h5>
-      <Button text="Delete" onClick={handleDelete} />
+      <Button text="Delete" onClick={() => handleDelete(item)} />
     </StyledDiv>
   ));
 
   return (
     <div>
       <h1>Cart</h1>
-      {item} 
+      {item}
     </div>
   );
 };
