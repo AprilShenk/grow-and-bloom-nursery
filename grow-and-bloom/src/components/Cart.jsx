@@ -16,6 +16,7 @@ const Cart = ({cart, setCart}) => {
     console.log("clicked");
     console.log(item);
     setCart(cart.filter(removeItem => removeItem !== item))
+    localStorage.setItem('cart', JSON.stringify(cart.filter(removeItem => removeItem !== item)))
   };
 
   const item = cart.map((item) => (
