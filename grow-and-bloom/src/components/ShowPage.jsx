@@ -92,47 +92,26 @@ export default function ShowPage({ plantData, cart, setCart }) {
     //   //   : null
 
     setCart((prevCart) => {
-      const newCart = prevCart.map((item) => {
-        return {
-          ...item,
-          fields: {
-            category: item.fields.category,
-            count: item.fields.count + 1,
-            description: item.fields.description,
-            image: item.fields.image,
-            link: item.fields.link,
-            name: item.fields.name,
-            petSafe: item.fields.petSafe,
-            price: item.fields.price,
-            scientificName: item.fields.scientificName,
-          },
-        };
-      });
-      if (!prevCart.length) {
+      if (!prevCart.find((item) => item.id === plant.id)) {
         plant.fields.count = 1;
         return [...prevCart, plant];
       } else {
+        const newCart = prevCart.map((item) => {
+          if (item.id === plant.id) {
+            return {
+              ...item,
+              fields: {
+                ...item.fields,
+                count: item.fields.count + 1,
+              },
+            };
+          } else {
+            return item;
+          }
+        });
         return newCart;
       }
     });
-
-    // setCart(prevCart => {
-
-    //   return [...prevCart, {
-    //     ...plant,
-    //     fields: {
-    //       category: plant.fields.category,
-    //       count: plant.fields.count + 1,
-    //       description: plant.fields.description,
-    //       image: plant.fields.image,
-    //       link: plant.fields.link,
-    //       name: plant.fields.name,
-    //       petSafe: plant.fields.petSafe,
-    //       price: plant.fields.price,
-    //       scientificName: plant.fields.scientificName,
-    //     }
-    //   }]
-    // })
   };
 
   if (!plant) {
