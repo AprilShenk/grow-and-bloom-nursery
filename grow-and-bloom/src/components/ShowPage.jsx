@@ -87,10 +87,6 @@ export default function ShowPage({ plantData, cart, setCart }) {
   const plant = plantData.find((plant) => params.id === plant.id);
 
   const handleAddToCart = () => {
-    //   // plant.fields.price > 0
-    //   //   ? setCart([...cart, plant])
-    //   //   : null
-
     setCart((prevCart) => {
       if (!prevCart.find((item) => item.id === plant.id)) {
         plant.fields.count = 1;
@@ -138,7 +134,11 @@ export default function ShowPage({ plantData, cart, setCart }) {
         <a href={plant.fields.link} target="_blank" rel="noopener noreferrer">
           <StyledButton>Read More</StyledButton>
         </a>
-        <StyledButton onClick={handleAddToCart}>Add to Cart</StyledButton>
+        {plant.fields.price ? (
+          <StyledButton onClick={handleAddToCart}>Add to Cart</StyledButton>
+        ) : (
+          null
+        )}
       </InfoDiv>
     </InfoContainer>
   );
