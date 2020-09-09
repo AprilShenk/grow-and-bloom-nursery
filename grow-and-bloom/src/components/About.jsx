@@ -1,6 +1,6 @@
 import React from "react";
 import styled from 'styled-components';
-
+// ------------STYLING------------
 const StyledDiv = styled.div`
   max-width: 500px;
   margin: 30px auto;

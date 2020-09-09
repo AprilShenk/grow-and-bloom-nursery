@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import SideMenu from "./SideMenu";
 
+// ------------STYLING------------
 const StyledDiv = styled.div`
   display: flex;
   margin: 0 auto;
@@ -22,10 +23,6 @@ const StyledDiv = styled.div`
   }
   button {
     padding 8px;
-  }
-  @media only screen and (min-width: 750px) {
-  }
-  @media only screen and (min-width: 1025px) {
   }
 `;
 
@@ -61,9 +58,12 @@ const CartIcon = styled.button`
   }
 `;
 
-const NavBar = (props) => {
+const NavBar = () => {
+  // ------------SETTING STATE FOR MENU------------
   const [toggleMenu, setToggleMenu] = useState(false);
 
+  // ------------FUNCTIONS------------
+  // EVENT LISTENER CALLBACK
   const handleClick = () => {
     setToggleMenu(!toggleMenu);
   };

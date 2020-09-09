@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
+// ------------STYLING------------
 const ToggleMenu = styled.aside`
   width: 200px;
   height: 200px;

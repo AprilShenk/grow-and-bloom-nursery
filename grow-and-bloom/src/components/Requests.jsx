@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { baseURL } from "../constants.js";
 import axios from "axios";
 
+// ------------STYLING------------
 const Title = styled.h2`
   margin: 10 auto;
   text-align: center;
@@ -45,12 +46,16 @@ const StyledDiv = styled.div`
 `;
 
 const Request = ({ fetchPlants, setFetchPlants }) => {
+  // ------------SET STATE------------
   const [name, setName] = useState("");
   const [scientificName, setScientificName] = useState("");
   const [image, setImage] = useState("");
   const [description, setDescription] = useState("");
   const [link, setLink] = useState("");
 
+  // ------------FUNCTIONS------------
+  // EVENT LISTENER CALLBACK TO HANDLE SUBMIT
+  // POST TO API TO CREATE ENTRY
   const handleSubmit = async (e) => {
     e.preventDefault();
     const fields = {

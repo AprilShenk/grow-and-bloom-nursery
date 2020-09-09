@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useParams } from "react-router-dom";
 import Button from './Button';
 
+// ------------STYLING------------
 const InfoContainer = styled.section`
   margin: 50px auto;
   display: flex;
@@ -23,6 +24,7 @@ const InfoContainer = styled.section`
       width: 50%;
     }
   }
+
   @media only screen and (min-width: 1025px) {
     margin: 50px auto;
     display: flex;
@@ -58,10 +60,15 @@ const InfoDiv = styled.div`
 `;
 
 export default function ShowPage({ plantData, setCart }) {
+  // ------------FUNCTIONS------------
+  // GET PARAMS FROM PATH
   const params = useParams();
-
+  
+  // SELECT PLANT THAT MATCHES PATH ID
   const plant = plantData.find((plant) => params.id === plant.id);
 
+  // EVENT LISTENER CALLBACK TO HANDLE ADDING TO CART
+  // UPDATE LOCAL STORAGE
   const handleAddToCart = () => {
     setCart((prevCart) => {
       if (!prevCart.find((item) => item.id === plant.id)) {
@@ -88,6 +95,7 @@ export default function ShowPage({ plantData, setCart }) {
     });
   };
 
+  // ------------CHECK IF PLANT CAN BE RENDERED------------
   if (!plant) {
     return <h2>Loading...</h2>;
   }

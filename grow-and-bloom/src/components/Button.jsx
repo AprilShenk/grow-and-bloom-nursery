@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+// ------------STYLING------------
 const StyledButton = styled.button`
   background-color: #633D2E;
     color: white;
@@ -18,14 +19,9 @@ const StyledButton = styled.button`
   :focus {
     outline: none;
   }
-  @media only screen and (min-width: 750px) {
-
-  }
-  @media only screen and (min-width: 1025px) {
-
-  }
   `;
-const Button = ({text, onClick}) => {
+
+const Button = ({ text, onClick }) => {
   return (
     <StyledButton onClick={onClick}>{text}</StyledButton>
   );

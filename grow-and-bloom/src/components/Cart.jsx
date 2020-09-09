@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Button from "./Button";
 
+// ------------STYLING------------
 const StyledDiv = styled.div`
   background: #ddd9ab;
   border-radius: 30px;
@@ -10,6 +11,9 @@ const StyledDiv = styled.div`
 `;
 
 const Cart = ({ cart, setCart }) => {
+  // ------------FUNCTIONS------------
+  // EVENT HANDLER CALLBACK
+  // UPDATE LOCAL STORAGE
   const handleDelete = (item) => {
     setCart(cart.filter((removeItem) => removeItem !== item));
     localStorage.setItem(
@@ -18,6 +22,7 @@ const Cart = ({ cart, setCart }) => {
     );
   };
 
+  // GETTING EACH ITEM AND INFO FROM CART
   const item = cart.map((item) => (
     <StyledDiv key={item.id}>
       <h1>{item.fields.name}</h1>
@@ -27,6 +32,7 @@ const Cart = ({ cart, setCart }) => {
     </StyledDiv>
   ));
 
+  // CALCULATE TOTAL OF CART
   const getTotal = () => {
     let total = 0;
     cart.forEach(item => {

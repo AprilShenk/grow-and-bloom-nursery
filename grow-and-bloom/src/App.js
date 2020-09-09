@@ -13,10 +13,12 @@ import Footer from "./components/Footer";
 import Cart from "./components/Cart"
 
 function App() {
+  // ------------SETTING STATE FOR DATA, CART, AND FETCHING DATA------------
   const [plantData, setPlantData] = useState([]);
   const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart")) || []);
   const [fetchPlants, setFetchPlants] = useState(false);
 
+  // ------------API CALL AND SETTING DATA IN STATE------------
   useEffect(() => {
     try {
       const getPlants = async () => {
@@ -35,6 +37,7 @@ function App() {
 
   return (
     <div className="App">
+      {/* ------------RENDER COMPONENTS AND SET ROUTES------------ */}
       <NavBar />
       <DisplayBanner />
       <Switch>

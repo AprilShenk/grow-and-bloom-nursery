@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
+// ------------STYLING------------
 const StyledDiv = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -52,6 +53,7 @@ const StyledLink = styled(Link)`
 `;
 
 const Plants = ({ plantData }) => {
+  // GET EACH PLANT OBJECT AND FORM DIV ELEMENT
   const plant = plantData.map((plant) => (
     <StyledLink to={`/plant/${plant.id}`} key={plant.id}>
       <div key={plant.id}>
