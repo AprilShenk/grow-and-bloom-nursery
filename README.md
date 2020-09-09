@@ -7,8 +7,6 @@ Grow and Bloom Nursery
 This is a mock website for a plant nursery. There will be a section that contains the nursery and contact information. In another section, users will be able to see the selection of plants the nursery has in stock and find more information on each one. If the nursery does not have the user's wanted plant they will be able to create a request using a form. The website will have functionality for both mobile and desktop.
 
 ## Wireframes
-[Mobile](https://wireframe.cc/3fd5kP)
-
 ![mobile](https://iili.io/dmj7Lu.png)
 ![tablet](https://iili.io/dmjaqb.md.png)
 ![desktop](https://iili.io/dmj5Xe.md.png)
@@ -84,6 +82,6 @@ records: [
 |Sep 7| Styling | Complete
 |Sep 8| Create Form | Complete
 |Sep 9| MVP | Complete
-|Sep 9| Deployment | Incomplete
+|Sep 9| Deployment | Complete
 |Sep 10| Post-MVP | Incomplete
 |Sep 11| Presentations | Incomplete
