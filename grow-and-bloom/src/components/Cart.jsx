@@ -9,14 +9,13 @@ const StyledDiv = styled.div`
   margin: 0 auto;
 `;
 
-const Cart = ({cart, setCart}) => {
-  console.log(cart);
-
+const Cart = ({ cart, setCart }) => {
   const handleDelete = (item) => {
-    console.log("clicked");
-    console.log(item);
-    setCart(cart.filter(removeItem => removeItem !== item))
-    localStorage.setItem('cart', JSON.stringify(cart.filter(removeItem => removeItem !== item)))
+    setCart(cart.filter((removeItem) => removeItem !== item));
+    localStorage.setItem(
+      "cart",
+      JSON.stringify(cart.filter((removeItem) => removeItem !== item))
+    );
   };
 
   const item = cart.map((item) => (
