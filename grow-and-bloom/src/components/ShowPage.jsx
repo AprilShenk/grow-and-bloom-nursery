@@ -94,6 +94,7 @@ export default function ShowPage({ plantData, cart, setCart }) {
     setCart((prevCart) => {
       if (!prevCart.find((item) => item.id === plant.id)) {
         plant.fields.count = 1;
+        localStorage.setItem('cart', JSON.stringify([...prevCart, plant]))
         return [...prevCart, plant];
       } else {
         const newCart = prevCart.map((item) => {
@@ -109,6 +110,7 @@ export default function ShowPage({ plantData, cart, setCart }) {
             return item;
           }
         });
+        localStorage.setItem('cart', JSON.stringify(newCart))
         return newCart;
       }
     });
