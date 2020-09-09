@@ -92,12 +92,7 @@ export default function ShowPage({ plantData, cart, setCart }) {
     //   //   : null
 
     setCart((prevCart) => {
-      // console.log("before map", prevCart);
       const newCart = prevCart.map((item) => {
-        console.log("in map", prevCart);
-        console.log("in map", item);
-        // console.log(plant.id);
-        // console.log(item.id);
         return {
           ...item,
           fields: {
@@ -113,15 +108,31 @@ export default function ShowPage({ plantData, cart, setCart }) {
           },
         };
       });
-      // console.log(prevCart)
       if (!prevCart.length) {
-        plant.fields.count = 1
+        plant.fields.count = 1;
         return [...prevCart, plant];
       } else {
-        console.log("new");
         return newCart;
       }
     });
+
+    // setCart(prevCart => {
+
+    //   return [...prevCart, {
+    //     ...plant,
+    //     fields: {
+    //       category: plant.fields.category,
+    //       count: plant.fields.count + 1,
+    //       description: plant.fields.description,
+    //       image: plant.fields.image,
+    //       link: plant.fields.link,
+    //       name: plant.fields.name,
+    //       petSafe: plant.fields.petSafe,
+    //       price: plant.fields.price,
+    //       scientificName: plant.fields.scientificName,
+    //     }
+    //   }]
+    // })
   };
 
   if (!plant) {
