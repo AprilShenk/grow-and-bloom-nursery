@@ -22,12 +22,60 @@ const Cart = ({ cart, setCart }) => {
     );
   };
 
+  const handleIncrement = (item) => {
+    console.log(cart);
+    const update = cart.map((item) => {
+      console.log(item.fields.count);
+      return {
+        ...item,
+        fields: {
+          ...item.fields,
+          count: item.fields.count + 1,
+        },
+      };
+    });
+    return update;
+  };
+
+  const handleDecrement = (item) => {
+    console.log(cart);
+    const update = cart.map((item) => {
+      console.log(item.fields.count);
+      return {
+        ...item,
+        fields: {
+          ...item.fields,
+          count: item.fields.count - 1,
+        },
+      };
+    });
+    return update;
+  };
+
   // GETTING EACH ITEM AND INFO FROM CART
   const item = cart.map((item) => (
     <StyledDiv key={item.id}>
       <h1>{item.fields.name}</h1>
       <h3>${item.fields.price}</h3>
       <h5>Qty: {item.fields.count}</h5>
+      <Button
+        text="+"
+        onClick={() => {
+          setCart([...handleIncrement(item)])
+          localStorage.setItem(
+            "cart",
+            JSON.stringify([...handleIncrement(item)])
+          );
+        }} />
+      <Button
+        text="-"
+        onClick={() => {
+          setCart([...handleDecrement(item)])
+          localStorage.setItem(
+            "cart",
+            JSON.stringify([...handleDecrement(item)])
+          );
+        }} />
       <Button text="Delete" onClick={() => handleDelete(item)} />
     </StyledDiv>
   ));
@@ -35,11 +83,11 @@ const Cart = ({ cart, setCart }) => {
   // CALCULATE TOTAL OF CART
   const getTotal = () => {
     let total = 0;
-    cart.forEach(item => {
-      total += (item.fields.price * item.fields.count)
+    cart.forEach((item) => {
+      total += item.fields.price * item.fields.count;
     });
-    return total
-  }
+    return total;
+  };
 
   return (
     <div>
