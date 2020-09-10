@@ -59,34 +59,40 @@ const Cart = ({ cart, setCart }) => {
   };
 
   // GETTING EACH ITEM AND INFO FROM CART
-  const item = cart.map((item) => (
-    <StyledDiv key={item.id}>
-      <h1>{item.fields.name}</h1>
-      <h3>${item.fields.price}</h3>
-      <h5>Qty: {item.fields.count}</h5>
-      <Button
-        text="+"
-        onClick={() => {
-          setCart([...handleIncrement(item)]);
-          localStorage.setItem(
-            "cart",
-            JSON.stringify([...handleIncrement(item)])
-          );
-        }}
-      />
-      <Button
-        text="-"
-        onClick={() => {
-          setCart([...handleDecrement(item)]);
-          localStorage.setItem(
-            "cart",
-            JSON.stringify([...handleDecrement(item)])
-          );
-        }}
-      />
-      <Button text="Delete" onClick={() => handleDelete(item)} />
-    </StyledDiv>
-  ));
+  const item = cart.map((item) => {
+    if (item.fields.count > 0) {
+      return (
+        <StyledDiv key={item.id}>
+          <h1>{item.fields.name}</h1>
+          <h3>${item.fields.price}</h3>
+          <h5>Qty: {item.fields.count}</h5>
+          <Button
+            text="+"
+            onClick={() => {
+              setCart([...handleIncrement(item)]);
+              localStorage.setItem(
+                "cart",
+                JSON.stringify([...handleIncrement(item)])
+              );
+            }}
+          />
+          <Button
+            text="-"
+            onClick={() => {
+              setCart([...handleDecrement(item)]);
+              localStorage.setItem(
+                "cart",
+                JSON.stringify([...handleDecrement(item)])
+              );
+            }}
+          />
+          <Button text="Delete" onClick={() => handleDelete(item)} />
+        </StyledDiv>
+      );
+    } else {
+      return null;
+    }
+  });
 
   // CALCULATE TOTAL OF CART
   const getTotal = () => {
