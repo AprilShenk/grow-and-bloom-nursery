@@ -55,6 +55,7 @@ const Cart = ({ cart, setCart }) => {
         return updateItem;
       }
     });
+    console.log(update)
     return update;
   };
 
@@ -90,6 +91,8 @@ const Cart = ({ cart, setCart }) => {
         </StyledDiv>
       );
     } else {
+      cart.splice(cart.indexOf((cart.find(item => item.fields.count === 0))), 1)
+      localStorage.setItem('cart', JSON.stringify([...cart]))
       return null;
     }
   });
