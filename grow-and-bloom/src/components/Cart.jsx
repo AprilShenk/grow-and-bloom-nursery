@@ -24,40 +24,53 @@ const Cart = ({ cart, setCart }) => {
 
   // EVENT HANDLER CALLBACK FOR INCREMENT
   const handleIncrement = (item) => {
-    const update = cart.map((updateItem) => {
-      if (item.id === updateItem.id) {
-        return {
-          ...updateItem,
-          fields: {
-            ...updateItem.fields,
-            count: updateItem.fields.count + 1,
-          },
-        };
-      } else {
-        return updateItem;
-      }
-    });
-    return update;
+    setCart(prevCart => {
+      const update = prevCart.map((updateItem) => {
+        if (item.id === updateItem.id) {
+          return {
+            ...updateItem,
+            fields: {
+              ...updateItem.fields,
+              count: updateItem.fields.count + 1,
+            },
+          };
+        } else {
+          return updateItem;
+        }
+      });
+      localStorage.setItem(
+        "cart",
+        JSON.stringify([...update])
+      );
+      return [...update];
+    })
   };
 
   // EVENT HANDLER CALLBACK FOR DECREMENT
   const handleDecrement = (item) => {
-    const update = cart.map((updateItem) => {
-      if (item.id === updateItem.id) {
-        return {
-          ...updateItem,
-          fields: {
-            ...updateItem.fields,
-            count: updateItem.fields.count - 1,
-          },
-        };
-      } else {
-        return updateItem;
-      }
-    });
-    console.log(update)
-    return update;
+    setCart(prevCart => {
+      const update = prevCart.map((updateItem) => {
+        if (item.id === updateItem.id) {
+          return {
+            ...updateItem,
+            fields: {
+              ...updateItem.fields,
+              count: updateItem.fields.count -1,
+            },
+          };
+        } else {
+          return updateItem;
+        }
+      });
+      localStorage.setItem(
+        "cart",
+        JSON.stringify([...update])
+      );
+      return [...update];
+    })
   };
+
+
 
   // GETTING EACH ITEM AND INFO FROM CART
   const item = cart.map((item) => {
@@ -69,23 +82,11 @@ const Cart = ({ cart, setCart }) => {
           <h5>Qty: {item.fields.count}</h5>
           <Button
             text="+"
-            onClick={() => {
-              setCart([...handleIncrement(item)]);
-              localStorage.setItem(
-                "cart",
-                JSON.stringify([...handleIncrement(item)])
-              );
-            }}
+            onClick={() => handleIncrement(item)}
           />
           <Button
             text="-"
-            onClick={() => {
-              setCart([...handleDecrement(item)]);
-              localStorage.setItem(
-                "cart",
-                JSON.stringify([...handleDecrement(item)])
-              );
-            }}
+            onClick={() => handleDecrement(item)}
           />
           <Button text="Delete" onClick={() => handleDelete(item)} />
         </StyledDiv>
