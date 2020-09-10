@@ -3,11 +3,22 @@ import styled from "styled-components";
 import Button from "./Button";
 
 // ------------STYLING------------
+const StyledSection = styled.section`
+  color: #DDD9AB;
+`;
+
 const StyledDiv = styled.div`
   background: #ddd9ab;
   border-radius: 30px;
   width: 80%;
   margin: 0 auto;
+  color: #633D2E;
+  * {
+    margin: 3px;
+  }
+  img {
+    width: 70%;
+  }
 `;
 
 const Cart = ({ cart, setCart }) => {
@@ -78,6 +89,7 @@ const Cart = ({ cart, setCart }) => {
       return (
         <StyledDiv key={item.id}>
           <h1>{item.fields.name}</h1>
+          <img src={item.fields.image} alt={item.fields.name} />
           <h3>${item.fields.price}</h3>
           <h5>Qty: {item.fields.count}</h5>
           <Button
@@ -108,11 +120,11 @@ const Cart = ({ cart, setCart }) => {
   };
 
   return (
-    <div>
+    <StyledSection>
       <h1>Cart</h1>
       {item}
       <h3>Total: ${getTotal()}</h3>
-    </div>
+    </StyledSection>
   );
 };
 
