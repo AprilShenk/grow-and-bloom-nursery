@@ -63,7 +63,7 @@ const Plants = ({ plantData }) => {
         <br></br>
         {plant.fields.price ? 
         <h3 className="plant-info">${plant.fields.price}</h3> 
-        : <h3>Out of Stock</h3>}
+        : <h3 className="plant-info">Out of Stock</h3>}
       </div>
     </StyledLink>
   ));
