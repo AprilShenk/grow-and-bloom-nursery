@@ -12,7 +12,7 @@ const StyledDiv = styled.div`
 
 const Cart = ({ cart, setCart }) => {
   // ------------FUNCTIONS------------
-  // EVENT HANDLER CALLBACK
+  // EVENT HANDLER CALLBACK FOR DELETE
   // UPDATE LOCAL STORAGE
   const handleDelete = (item) => {
     setCart(cart.filter((removeItem) => removeItem !== item));
@@ -22,32 +22,38 @@ const Cart = ({ cart, setCart }) => {
     );
   };
 
+  // EVENT HANDLER CALLBACK FOR INCREMENT
   const handleIncrement = (item) => {
-    console.log(cart);
-    const update = cart.map((item) => {
-      console.log(item.fields.count);
-      return {
-        ...item,
-        fields: {
-          ...item.fields,
-          count: item.fields.count + 1,
-        },
-      };
+    const update = cart.map((updateItem) => {
+      if (item.id === updateItem.id) {
+        return {
+          ...updateItem,
+          fields: {
+            ...updateItem.fields,
+            count: updateItem.fields.count + 1,
+          },
+        };
+      } else {
+        return updateItem;
+      }
     });
     return update;
   };
 
+  // EVENT HANDLER CALLBACK FOR DECREMENT
   const handleDecrement = (item) => {
-    console.log(cart);
-    const update = cart.map((item) => {
-      console.log(item.fields.count);
-      return {
-        ...item,
-        fields: {
-          ...item.fields,
-          count: item.fields.count - 1,
-        },
-      };
+    const update = cart.map((updateItem) => {
+      if (item.id === updateItem.id) {
+        return {
+          ...updateItem,
+          fields: {
+            ...updateItem.fields,
+            count: updateItem.fields.count - 1,
+          },
+        };
+      } else {
+        return updateItem;
+      }
     });
     return update;
   };
@@ -61,21 +67,23 @@ const Cart = ({ cart, setCart }) => {
       <Button
         text="+"
         onClick={() => {
-          setCart([...handleIncrement(item)])
+          setCart([...handleIncrement(item)]);
           localStorage.setItem(
             "cart",
             JSON.stringify([...handleIncrement(item)])
           );
-        }} />
+        }}
+      />
       <Button
         text="-"
         onClick={() => {
-          setCart([...handleDecrement(item)])
+          setCart([...handleDecrement(item)]);
           localStorage.setItem(
             "cart",
             JSON.stringify([...handleDecrement(item)])
           );
-        }} />
+        }}
+      />
       <Button text="Delete" onClick={() => handleDelete(item)} />
     </StyledDiv>
   ));
