@@ -20,6 +20,8 @@ const StyledDiv = styled.div`
     font-size: 25px;
     flex-grow: 2;
     margin 20px 10px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 35px;
   }
   button {
     padding 8px;

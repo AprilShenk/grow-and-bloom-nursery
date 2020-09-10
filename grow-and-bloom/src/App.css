@@ -3,6 +3,7 @@
   width: 100vw;
   height: 100vh;
   background: #633d2e;
+  font-family: "Open Sans", sans-serif;
 }
 *:focus {
   outline-color: #9CDDC8;
