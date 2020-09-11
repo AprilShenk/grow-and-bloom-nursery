@@ -24,6 +24,12 @@ const StyledLink = styled(Link)`
   :hover {
     color: #F7AF63;
   }
+  @media only screen and (min-width: 750px) {
+    font-size: 22px;
+  }
+  @media only screen and (min-width: 1025px) {
+    font-size: 22px;
+  }
 `;
 
 const SideMenu = ({toggleMenu, setToggleMenu}) => {

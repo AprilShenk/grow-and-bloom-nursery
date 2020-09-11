@@ -9,8 +9,7 @@ import SideMenu from "./SideMenu";
 const StyledDiv = styled.div`
   display: flex;
   margin: 0 auto;
-
-  width: 100vw;
+  width: 100%;
   background: #bfd8ad;
   justify-content: space-between;
   align-items: center;
@@ -24,7 +23,20 @@ const StyledDiv = styled.div`
     font-size: 35px;
   }
   button {
-    padding 8px;
+    padding 10px;
+  }
+  @media only screen and (min-width: 750px) {
+    h1 {
+      font-size: 40px;
+    }
+  }
+  @media only screen and (min-width: 1020px) {
+    h1 {
+      font-size: 50px;
+    }
+    button {
+      font-size: 20px;
+    }
   }
 `;
 

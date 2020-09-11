@@ -2,11 +2,14 @@ import React from "react";
 import styled from 'styled-components';
 // ------------STYLING------------
 const StyledDiv = styled.div`
-  max-width: 500px;
+  width: 80%;
   margin: 30px auto;
   background: #DDD9AB;
   padding: 20px;
   border-radius: 30px;
+  @media only screen and (min-width: 1025px) {
+    max-width: 500px;
+  }
 `;
 
 const About = () => {

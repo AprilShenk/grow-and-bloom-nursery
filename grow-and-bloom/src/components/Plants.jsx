@@ -8,14 +8,14 @@ const StyledDiv = styled.div`
   grid-template-columns: 1fr 1fr;
   background: #633d2e;
   div {
-    margin: 20px;
+    margin: 10px;
     padding: 10px;
     background: #ddd9ab;
     border-radius: 10px;
   }
   div > img {
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
     object-fit: contain;
   }
   div:hover {
@@ -29,6 +29,11 @@ const StyledDiv = styled.div`
     grid-template-columns: 1fr 1fr 1fr;
     div {
       margin: 15px;
+    }
+    div > img {
+      width: 160px;
+      height: 160px;
+      object-fit: contain;
     }
   }
 

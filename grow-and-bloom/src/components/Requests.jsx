@@ -3,6 +3,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import { baseURL } from "../constants.js";
 import axios from "axios";
+import Button from "./Button"
 
 // ------------STYLING------------
 const Title = styled.h2`
@@ -14,35 +15,35 @@ const StyledForm = styled.form`
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  max-width: 400px;
+  width: 80%
   input {
     padding: 10px;
     margin: 10px 0;
   }
-  button {
-    background-color: #633d2e;
-    color: white;
-    font-weight: bold;
-    padding: 8px;
-    border-radius: 10px;
-    width: 120px;
-    align-self: center;
-    border: none;
-  }
+
   button:hover {
     background-color: #f7af63;
   }
   button:focus {
     outline-color: #9cddc8;
   }
+
+  @media only screen and (min-width: 1025px) {
+    max-width: 400px;
+  }
+
 `;
 
 const StyledDiv = styled.div`
   background: #ddd9ab;
   padding: 30px;
-  max-width: 500px;
+  width: 70%;
   margin: 30px auto;
   border-radius: 30px;
+
+  @media only screen and (min-width: 1025px) {
+    max-width: 500px;
+  }
 `;
 
 const Request = ({ fetchPlants, setFetchPlants }) => {
@@ -126,7 +127,7 @@ const Request = ({ fetchPlants, setFetchPlants }) => {
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
-        <button>Submit</button>
+        <Button text="Submit"/>
       </StyledForm>
     </StyledDiv>
   );
