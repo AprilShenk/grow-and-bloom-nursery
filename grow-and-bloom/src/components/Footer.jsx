@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const StyledDiv = styled.div`
   position: absolute; 
-  bottom: -15px;
+  bottom: -20px;
   width: 100%;
   margin: 0 auto;
 `;

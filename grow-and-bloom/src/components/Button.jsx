@@ -17,7 +17,7 @@ const StyledButton = styled.button`
     background-color: #F7AF63;
   }
   :focus {
-    outline: none;
+    outline-color: #9CDDC8;
   }
   `;
 
