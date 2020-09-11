@@ -83,5 +83,37 @@ records: [
 |Sep 8| Create Form | Complete
 |Sep 9| MVP | Complete
 |Sep 9| Deployment | Complete
-|Sep 10| Post-MVP | Incomplete
+|Sep 10| Post-MVP | Complete
 |Sep 11| Presentations | Incomplete
+
+## Code Snippet
+
+This snippet handles returning JSX should it be rendered and removes the object from local storage if the count is 0 or less.    
+
+```
+const item = cart.map((item) => {
+    if (item.fields.count > 0) {
+      return (
+        <StyledDiv key={item.id}>
+          <h1>{item.fields.name}</h1>
+          <img src={item.fields.image} alt={item.fields.name} />
+          <h3>${item.fields.price}</h3>
+          <h5>Qty: {item.fields.count}</h5>
+          <Button
+            text="+"
+            onClick={() => handleIncrement(item)}
+          />
+          <Button
+            text="-"
+            onClick={() => handleDecrement(item)}
+          />
+          <Button text="Delete" onClick={() => handleDelete(item)} />
+        </StyledDiv>
+      );
+    } else {
+      cart.splice(cart.indexOf((cart.find(item => item.fields.count === 0))), 1)
+      localStorage.setItem('cart', JSON.stringify([...cart]))
+      return null;
+    }
+  });
+```
