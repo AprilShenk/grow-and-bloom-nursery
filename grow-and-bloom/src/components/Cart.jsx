@@ -4,7 +4,7 @@ import Button from "./Button";
 
 // ------------STYLING------------
 const StyledSection = styled.section`
-  color: #DDD9AB;
+  color: #ddd9ab;
 `;
 
 const StyledDiv = styled.div`
@@ -12,7 +12,7 @@ const StyledDiv = styled.div`
   border-radius: 30px;
   width: 80%;
   margin: 0 auto;
-  color: #633D2E;
+  color: #633d2e;
   * {
     margin: 3px;
   }
@@ -35,7 +35,7 @@ const Cart = ({ cart, setCart }) => {
 
   // EVENT HANDLER CALLBACK FOR INCREMENT
   const handleIncrement = (item) => {
-    setCart(prevCart => {
+    setCart((prevCart) => {
       const update = prevCart.map((updateItem) => {
         if (item.id === updateItem.id) {
           return {
@@ -49,39 +49,34 @@ const Cart = ({ cart, setCart }) => {
           return updateItem;
         }
       });
-      localStorage.setItem(
-        "cart",
-        JSON.stringify([...update])
-      );
+      localStorage.setItem("cart", JSON.stringify([...update]));
       return [...update];
-    })
+    });
   };
 
   // EVENT HANDLER CALLBACK FOR DECREMENT
   const handleDecrement = (item) => {
-    setCart(prevCart => {
+    setCart((prevCart) => {
       const update = prevCart.map((updateItem) => {
         if (item.id === updateItem.id) {
+          if (item.fields.count <= 1) {
+            handleDelete(item)
+          }
           return {
             ...updateItem,
             fields: {
               ...updateItem.fields,
-              count: updateItem.fields.count -1,
+              count: updateItem.fields.count - 1,
             },
           };
         } else {
           return updateItem;
         }
       });
-      localStorage.setItem(
-        "cart",
-        JSON.stringify([...update])
-      );
+      localStorage.setItem("cart", JSON.stringify([...update]));
       return [...update];
-    })
+    });
   };
-
-
 
   // GETTING EACH ITEM AND INFO FROM CART
   const item = cart.map((item) => {
