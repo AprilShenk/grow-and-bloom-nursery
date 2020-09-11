@@ -5,6 +5,7 @@ const StyledDiv = styled.div`
   position: fixed; 
   bottom: 0px;
   text-align: center; 
+  width: 100%;
   margin: 0 auto;
 `;
 
