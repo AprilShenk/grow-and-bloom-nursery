@@ -4,6 +4,8 @@
   height: 100%;
   background: #633d2e;
   font-family: "Open Sans", sans-serif;
+  position: relative;
+  min-height: 100vh;
 }
 *:focus {
   outline-color: #9CDDC8;

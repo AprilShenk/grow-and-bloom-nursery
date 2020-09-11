@@ -10,6 +10,7 @@ const StyledSection = styled.section`
 const StyledDiv = styled.div`
   background: #ddd9ab;
   border-radius: 30px;
+  max-width: 600px;
   width: 80%;
   margin: 0 auto;
   color: #633d2e;

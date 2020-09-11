@@ -2,9 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledDiv = styled.div`
-  position: fixed; 
-  bottom: 0px;
-  text-align: center; 
+  position: absolute; 
+  bottom: -15px;
   width: 100%;
   margin: 0 auto;
 `;

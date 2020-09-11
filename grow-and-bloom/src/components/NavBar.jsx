@@ -24,6 +24,7 @@ const StyledDiv = styled.div`
   }
   button {
     padding 10px;
+    font-size: 10px;
   }
   @media only screen and (min-width: 750px) {
     h1 {
@@ -35,7 +36,7 @@ const StyledDiv = styled.div`
       font-size: 50px;
     }
     button {
-      font-size: 20px;
+      font-size: 15px;
     }
   }
 `;
